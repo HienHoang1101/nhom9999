@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deli Cafe - Menu</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Marck+Script&display=swap"
+      rel="stylesheet"
+    />
+    <script defer="" type="text/javascript" src="css/category.css"></script>
+    <link rel="icon" href="../img/favicon.png" />
+  </head>
+
+  <body>
+    <header>
+      <div class="second-header">
+        <div class="menu-btn">
+          <span class="menu-btn__burger"></span>
+        </div>
+
+        <nav class="nav">
+          <ul class="menu-nav">
+            <li class="menu-nav__item">
+              <a href="index.html" class="logo menu-nav__link">
+                <img src="img/favicon.png" />
+                <span class="logo-first">Deli</span>
+                <span class="logo-last">Cafe</span>
+              </a>
+            </li>
+            <li class="menu-nav__item">
+              <a href="sign-in.html" class="sign-in menu-nav__link">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                Sign In
+              </a>
+              <span class="menu-nav__link" id="slash">/</span>
+              <a href="sign-up.html" class="sign-up menu-nav__link">
+                Sign Up
+              </a>
+            </li>
+            <br />
+            <li class="menu-nav__item">
+              <a href="index.html" class="menu-nav__link">
+                Home
+              </a>
+            </li>
+            <li class="menu-nav__item active">
+              <a href="menu.html" class="menu-nav__link">
+                Menu
+              </a>
+            </li>
+            <li class="menu-nav__item">
+              <a href="services.html" class="menu-nav__link">
+                Services
+              </a>
+            </li>
+            <li class="menu-nav__item">
+              <a href="contact.html" class="menu-nav__link">
+                Contact
+              </a>
+            </li>
+            <li class="menu-nav__item">
+              <a href="#!" class="menu-nav__link cart__openBtn">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- Shopping Cart -->
+      <div class="cart-overlay">
+        <div class="cart">
+          <div class="cart__closeBtn">
+            <i class="fas fa-window-close"></i>
+          </div>
+          <h2>
+            <i class="fa fa-cart-arrow-down"></i>
+            <span class="span-primary">Shopping</span> Cart
+            <i class="fa fa-cart-arrow-down"></i>
+          </h2>
+
+          <!-- JS will add items here -->
+          <div class="item1-display"></div>
+          <div class="item2-display"></div>
+          <div class="item3-display"></div>
+          <div class="item4-display"></div>
+          <div class="item5-display"></div>
+          <div class="item6-display"></div>
+          <div class="item7-display"></div>
+          <div class="item8-display"></div>
+          <div class="item9-display"></div>
+          <div class="item10-display"></div>
+          <div class="item11-display"></div>
+          <div class="item12-display"></div>
+          <div class="total"></div>
+          <div class="buy-now">
+            <a href="checkout.html">
+            <button style="--clr: #0ff0fc"><span>Buy Now</span><i></i></button></a>
+            <style>
+              * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+              }
+
+              .buy-now button {
+                position: relative;
+                background: #444;
+                color: #fff;
+                text-decoration: none;
+                text-transform: uppercase;
+                border: none;
+                letter-spacing: 0.1rem;
+                font-size: 1rem;
+                padding: 1rem 3rem;
+                transition: 0.2s;
+              }
+
+              .buy-now button:hover {
+                letter-spacing: 0.2rem;
+                padding: 1.1rem 3.1rem;
+                background: var(--clr);
+                color: var(--clr);
+                /* box-shadow: 0 0 35px var(--clr); */
+                animation: box 3s infinite;
+              }
+
+              .buy-now button::before {
+                content: "";
+                position: absolute;
+                inset: 2px;
+                background: #272822;
+              }
+
+              .buy-now button span {
+                position: relative;
+                z-index: 1;
+              }
+
+              .buy-now button i {
+                position: absolute;
+                inset: 0;
+                display: block;
+              }
+
+              .buy-now button i::before {
+                content: "";
+                position: absolute;
+                width: 10px;
+                height: 2px;
+                left: 80%;
+                top: -2px;
+                border: 2px solid var(--clr);
+                background: #272822;
+                transition: 0.2s;
+              }
+
+              .buy-now button:hover i::before {
+                width: 15px;
+                left: 20%;
+                animation: move 3s infinite;
+              }
+
+              .buy-now button i::after {
+                content: "";
+                position: absolute;
+                width: 10px;
+                height: 2px;
+                left: 20%;
+                bottom: -2px;
+                border: 2px solid var(--clr);
+                background: #272822;
+                transition: 0.2s;
+              }
+
+              .buy-now button:hover i::after {
+                width: 15px;
+                left: 80%;
+                animation: move 3s infinite;
+              }
+
+              @keyframes move {
+                0% {
+                  transform: translateX(0);
+                }
+
+                50% {
+                  transform: translateX(5px);
+                }
+
+                100% {
+                  transform: translateX(0);
+                }
+              }
+
+              @keyframes box {
+                0% {
+                  box-shadow: #27272c;
+                }
+
+                50% {
+                  box-shadow: 0 0 25px var(--clr);
+                }
+
+                100% {
+                  box-shadow: #27272c;
+                }
+              }
+            </style>
+          </div>
+          <br />
+                <a href="history.html"><p style="color:antiquewhite">HISTORY </p></a>
+        </div>
+      </div>
+
+      <main>
+        <section class="menu">
+          <div class="pic-area">
+            <div class="pic-area-text">
+              <h2>Limited Time Offer:</h2>
+              <h1>20% Off Any Large Size Drink!</h1>
+              <h3>Large size (16 fl oz)</h3>
+            </div>
+          </div>
+    
+          
+          <nav class="nav">
+            <ul class="menu-nav-center">
+            <div class="menu-nav__item">
+              <div class="content_list_filter is-active">               
+                <a href="menu.html">Coffee</a>
+              <a href="tea.html">Tea</a>
+              <a href="Ascending price(CF).html">Ascending</a>
+              <a href="descending price(CF2).html">Descending</a>
+              <a href="Best seller.html">Best seller</a>             
+            </div>       
+            </div>
+            </ul></nav>
+
+    <div class="flex">
+        <div class="box">
+            <div class="img-container">
+              <img src="img/SBX20211029_IcedAppleCrispOatmilkShakenEspresso.webp" alt="Iced Apple crisp Oatmilk Shaken Espresso" />
+              <div class="box__btns">
+                <a href="#!" class="box__btn ten__view__openBtn">
+                  View
+                </a>
+                <a href="#!" class="box__btn ten__cart__button">
+                  Add to Cart
+                </a>
+              </div>
+            </div>
+            <h2>Iced Apple Crisp Oatmilk Shaken Espresso</h2>
+            <h3>$4.85</h3>
+          </div>
+      
+          <div class="box">
+              <div class="img-container">
+                <img
+                  src="img/SBX20220323_IcedAppleCrispOatmilkMacchiato.webp" alt="Iced Apple Crisp Oatmilk Macchiato" />
+                <div class="box__btns">
+                  <a href="#!" class="box__btn eleven__view__openBtn">
+                    View
+                  </a>
+                  <a href="#!" class="box__btn eleven__cart__button">
+                    Add to Cart
+                  </a>
+                </div>
+              </div>
+              <h2>Iced Apple Crisp Oatmilk Macchiato</h2>
+              <h3>$4.85</h3>
+            </div>
+      
+            <div class="box">
+              <div class="img-container">
+                <img src="img/SBX20200409_IcedPumpkinSpiceLatte.webp" alt="Iced Pumpkin Spice Latte" />
+                <div class="box__btns">
+                  <a href="#!" class="box__btn two__view__openBtn">
+                    View
+                  </a>
+                  <a href="#!" class="box__btn two__cart__button">
+                    Add to Cart
+                  </a>
+                </div>
+              </div>
+              <h2>Iced Pumpkin Spice Latte</h2>
+              <h3>$4.85</h3>
+            </div>
+
+            <div class="box">
+                <div class="img-container">
+                  <img src="img/SBX20190607_IcedWhiteChocolateMocha.webp" alt="Iced White chocolate Mocha" />
+                  <div class="box__btns">
+                    <a href="#!" class="box__btn eight__view__openBtn">
+                      View
+                    </a>
+                    <a href="#!" class="box__btn eight__cart__button">
+                      Add to Cart
+                    </a>
+                  </div>
+                </div>
+                <h2>Iced White chocolate Mocha</h2>
+                <h3>$4.65</h3>
+              </div>
+
+              <div class="box">
+                <div class="img-container">
+                  <img src="img/SBX20221014_CinnamonCaramelCreamNitroColdBrew.webp" alt="Cinnamon Caramel Cream Nitro Cold Brew" />
+                  <div class="box__btns">
+                    <a href="#!" class="box__btn four__view__openBtn">
+                      View
+                    </a>
+                    <a href="#!" class="box__btn four__cart__button">
+                      Add to Cart
+                    </a>
+                  </div>
+                </div>
+                <h2>Cinnamon Caramel Cream Nitro Cold Brew</h2>
+                <h3>$4.45</h3>
+              </div>
+            
+              <div class="box">
+                <div class="img-container">
+                  <img src="img/SBX20230612_7720_IcedCaramelBruleeLatte-onGreen-MOP_1800.webp" alt="Iced Caramel Brulée Latte" />
+                  <div class="box__btns">
+                    <a href="#!" class="box__btn one__view__openBtn">
+                      View
+                    </a>
+                    <a href="#!" class="box__btn one__cart__button">
+                      Add to Cart
+                    </a>
+                  </div>
+                </div>
+                <h2>Iced Caramel Brulée Latte</h2>
+                <h3>$4.45</h3>
+              </div>
+            
+              <div class="box">
+                <div class="img-container">
+                  <img src="img/SBX20230612_7746_IcedChestnutPralineLatte-onGreen-MOP_1800.webp" alt="Iced Chestnut Praline Latte"/>
+                  <div class="box__btns">
+                    <a href="#!" class="box__btn three__view__openBtn">
+                      View
+                    </a>
+                    <a href="#!" class="box__btn three__cart__button">
+                      Add to Cart
+                    </a>
+                  </div>
+                </div>
+                <h2>Iced Chestnut Praline Latte</h2>
+                <h3>$4.45</h3>
+              </div>
+
+              <div class="box">
+                <div class="img-container">
+                  <img src="img/SBX20220323_PumpkinCreamColdBrew-onGreen.webp" alt="Pumpkin Cream Cold Brew" />
+                  <div class="box__btns">
+                    <a href="#!" class="box__btn ten__view__openBtn">
+                      View
+                    </a>
+                    <a href="#!" class="box__btn ten__cart__button">
+                      Add to Cart
+                    </a>
+                  </div>
+                </div>
+                <h2>Pumpkin Cream Cold Brew</h2>
+                <h3>$4.25</h3>
+              </div>
+            
+              <div class="box">
+                <div class="img-container">
+                  <img src="img/SBX20211029_SaltedCaramelCreamColdBrew.webp"  alt="Salted Caramel Cream Cold Brew"  />
+                  <div class="box__btns">
+                    <a href="#!" class="box__btn eleven__view__openBtn">
+                      View
+                    </a>
+                    <a href="#!" class="box__btn eleven__cart__button">
+                      Add to Cart
+                    </a>
+                  </div>
+                </div>
+                <h2>Salted Caramel Cream Cold Brew</h2>
+                <h3>$4.25</h3>
+              </div>
+            
+              <div class="box">
+                <div class="img-container">
+                  <img src="img/SBX20190607_IcedCinnamonDolceLatte.webp" alt="Iced Cinnamon Dolce Latte" />
+                  <div class="box__btns">
+                    <a href="#!" class="box__btn six__view__openBtn">
+                      View
+                    </a>
+                    <a href="#!" class="box__btn six__cart__button">
+                      Add to Cart
+                    </a>
+                  </div>
+                </div>
+                <h2>Iced Cinnamon Dolce Latte</h2>
+                <h3>$4.25</h3>
+              </div>
+            
+              <div class="box">
+                <div class="img-container">
+                  <img src="img/SBX20190716_IcedPeppermintWhiteChocolateMocha.webp" alt="Iced Peppermin White chocolate" />
+                  <div class="box__btns">
+                    <a href="#!" class="box__btn nine__view__openBtn">
+                      View
+                    </a>
+                    <a href="#!" class="box__btn nine__cart__button">
+                      Add to Cart
+                    </a>
+                  </div>
+                </div>
+                <h2>Iced Peppermin White Chocolate Mocha</h2>
+                <h3>$4.25</h3>
+              </div>
+
+    <div class="box">
+        <div class="img-container">
+          <img
+            src="img/SBX20190607_IcedCaffeMocha.webp" alt="Iced Caffe Mocha" />
+          <div class="box__btns">
+            <a href="#!" class="box__btn seven__view__openBtn">
+              View
+            </a>
+            <a href="#!" class="box__btn seven__cart__button">
+              Add to Cart
+            </a>
+          </div>
+        </div>
+        <h2>Iced Caffe Mocha</h2>
+        <h3>$4.15</h3>
+      </div>
+    </div>
+
+<div class="cp">
+    <div class="pagination">	
+      <input id="dot-1" type="radio" name="dots"checked="checked"  >	
+      <label for="dot-1"></label>	
+        <input id="dot-2" type="radio" name="dots"> 
+      <label for="dot-2"></label>	
+      <div class="pacman"></div>
+    </div>
+    </div>
+
+      <script language="javascript">
+
+        document.getElementById('dot-2').onclick = function(e){
+            if (this.checked){
+              window.location.assign("descending price(CF).html");
+            }
+            else{
+                alert("...");
+            }
+        };
+    </script>
+
+
+  <footer>
+    <div class="icons">
+      <a href="#!">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#!">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="#!">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#!">
+        <i class="fab fa-snapchat-square"></i>
+      </a>
+    </div>
+    <div class="copyright">&copy; Copyright 2023</div>
+  </footer>
+</section>
+</main>
+<script src="js/script.js"></script>
+<script src="js/menu.js"></script>
+<script
+src="https://kit.fontawesome.com/c057664144.js"
+crossorigin="anonymous"
+></script>
+</body>
+</html>

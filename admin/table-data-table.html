@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Web Admin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
+</head>
+
+<body onload="time()" class="app sidebar-mini rtl">
+    <!-- Navbar-->
+    <header class="app-header">
+        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+            aria-label="Hide Sidebar"></a>
+        <!-- Navbar Right Menu-->
+        <ul class="app-nav">
+
+
+            <!-- User Menu-->
+            <li><a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+
+            </li>
+        </ul>
+    </header>
+    <!-- Sidebar menu -->
+    <div class="app-sidebar__overplay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user"><img class="sidebar__user-avatar" src="images\OIP.jpg" width="60px"
+                alt="User Image">
+            <div>
+                <p class="app-sidebar__user-name"><b>DEDEDE</b></p>
+                <p class="app-sidebar__user-designation">Welcome back</p>
+            </div>
+        </div>
+        <hr>
+        <ul class="app-menu">
+            <li><a class="app-menu__item haha" href="index.html"><i class='app-menu__icon bx bx-coffee'></i>
+                    <span class="app-menu__label"> DELI COFFEE</span></a></li>
+            <li><a class="app-menu__item active" href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
+                        class="app-menu__label">Dashboard</span></a></li>
+            <li><a class="app-menu__item " href="table-data-table.html"><i class='app-menu__icon bx bx-user-voice'></i>
+                    <span class="app-menu__label">Customer</span></a></li>
+            <li><a class="app-menu__item" href="table-data-product.html"><i
+                        class='app-menu__icon bx bx-purchase-tag-alt'></i><span
+                        class="app-menu__label">Product</span></a>
+            <li><a class="app-menu__item" href="table-data-order.html"><i class='app-menu__icon bx bx-task'></i><span
+                        class="app-menu__label">Order</span></a></li>
+            <li><a class="app-menu__item" href="table-data-banned.html"><i class='app-menu__icon bx bx-run'></i><span
+                        class="app-menu__label">Internal
+                    </span></a></li>
+            <li><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
+                        class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Revenue
+                        report</span></a>
+            </li>
+            <!-- <li><a class="app-menu__item" href="#"><i class='app-menu__icon bx bx-cog'></i><span -->
+            <!-- class="app-menu__label">Setting</span></a></li> -->
+        </ul>
+    </aside>
+    <main class="app-content">
+        <div class="app-title">
+            <ul class="app-breadcrumb breadcrumb side">
+                <li class="breadcrumb-item active"><a href="#"><b>Customer List</b></a></li>
+            </ul>
+            <div id="clock"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tile">
+                    <div class="tile-body">
+
+                        <div class="row element-button">
+                            <div class="col-sm-2">
+
+                                <a class="btn btn-add btn-sm" href="form-add-khach-hang.html" title="Thêm"><i
+                                        class="fas fa-plus"></i>
+                                    Create new customer</a>
+                            </div>
+                            <!-- <div class="col-sm-2"> 
+                                <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập"
+                                    onclick="myFunction(this)"><i class="fas fa-file-upload"></i> Download from file</a>
+                            </div>-->
+
+                            <div class="col-sm-2">
+                                <a class="btn btn-delete btn-sm print-file" type="button" title="Print"
+                                    onclick="myApp.printTable()"><i class="fas fa-print"></i> Print data</a>
+                            </div>
+                            <!-- <div class="col-sm-2">
+                                <a class="btn btn-delete btn-sm print-file js-textareacopybtn" type="button"
+                                    title="Sao chép"><i class="fas fa-copy"></i> Copy</a>
+                            </div>
+                            
+                            <div class="col-sm-2">
+                                <a class="btn btn-excel btn-sm" href="" title="In"><i class="fas fa-file-excel"></i>
+                                    Export Excel</a>
+                            </div>
+                            <div class="col-sm-2">
+                                <a class="btn btn-delete btn-sm pdf-file" type="button" title="In"
+                                    onclick="myFunction(this)"><i class="fas fa-file-pdf"></i> Export PDF</a>
+                            </div>-->
+                            <div class="col-sm-2">
+                                <a class="btn btn-delete btn-sm" type="button" title="Clear"
+                                    onclick="myFunction(this)"><i class="fas fa-trash-alt"></i> Clear all </a>
+                            </div>
+                        </div>
+                        <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0"
+                            border="0" id="sampleTable">
+                            <thead>
+                                <tr>
+                                    <th width="10"><input type="checkbox" id="all"></th>
+                                    <th>ID Customer</th>
+                                    <th width="150">Fullname</th>
+                                    <th width="20">Avatar</th>
+                                    <th width="300">Address</th>
+                                    <th>Birthday</th>
+                                    <th>Gender</th>
+                                    <th>Number</th>
+                                    <th>Status</th>
+                                    <th width="100">Feature</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                                    <td>#CD12837</td>
+                                    <td>Ho Thi Thanh Ngan</td>
+                                    <td><img class="img-card-person" src="anhthe7tam\download (1).jpg" alt=""></td>
+                                    <td>155-157 Tran Quoc Thao, District 3, Ho Chi Minh </td>
+                                    <td>12/02/1999</td>
+                                    <td>Female</td>
+                                    <td>0926737168</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td class="table-td-center"><button class="btn btn-primary btn-sm trash"
+                                            type="button" title="Delete" onclick="myFunction(this)"><i
+                                                class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm edit" type="button" title="Fix"
+                                            id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
+                                                class="fas fa-edit"></i>
+                                        </button></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="10"><input type="checkbox" name="check2" value="2"></td>
+                                    <td>#SX22837</td>
+                                    <td>Tran Kha Ai</td>
+                                    <td><img class="img-card-person" src="anhthe7tam\download (2).jpg" alt=""></td>
+                                    <td>6 Nguyen Luong Bang, Tan Phu, District 7, Ho Chi Minh</td>
+                                    <td>22/12/1999</td>
+                                    <td>Female</td>
+                                    <td>0931342432</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Delete"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm edit" type="button" title="Fix"
+                                            id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
+                                                class="fas fa-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="10"><input type="checkbox" name="check3" value="3"></td>
+                                    <td>#LO2871</td>
+                                    <td>Pham Thu Cuc</td>
+                                    <td><img class="img-card-person" src="anhthe7tam\download.jpg" alt=""></td>
+                                    <td>3 Hoa Binh, Ward 3, District 11, Ho Chi Minh </td>
+                                    <td>02/06/1998</td>
+                                    <td>Female</td>
+                                    <td>0931491997</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Delete"
+                                            onclick="myFunction()"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm edit" type="button" title="Fix"
+                                            id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
+                                                class="fas fa-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="10"><input type="checkbox"></td>
+                                    <td>#SR28746</td>
+                                    <td>Tran Anh Khoa</td>
+                                    <td><img class="img-card-person" src="anhthe7tam\th (1).jpg" alt=""></td>
+                                    <td>19 St Nguyen Huu Tho, Tan Hung, District 7, Ho Chi Minh </td>
+                                    <td>18/02/1995</td>
+                                    <td>Male</td>
+                                    <td>0916706633</td>
+                                    <td><span class="badge bg-danger">Banned</span></td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Delete"
+                                            onclick="myFunction()"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm edit" type="button" title="Fix"
+                                            id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
+                                                class="fas fa-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="10"><input type="checkbox"></td>
+                                    <td>#KJS276</td>
+                                    <td>Nguyen Thanh Nhan</td>
+                                    <td><img class="img-card-person" src="anhthe7tam\th (2).jpg" alt=""></td>
+                                    <td>No. 13, Tan Thuan Dong, District 7, Ho Chi Minh </td>
+                                    <td>10/03/1996</td>
+                                    <td>Male</td>
+                                    <td>0971038066</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Delete"
+                                            onclick="myFunction()"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm edit" type="button" title="Fix"
+                                            id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
+                                                class="fas fa-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="10"><input type="checkbox"></td>
+                                    <td>#BS76228</td>
+                                    <td>Nguyen Dang Trong Nhan</td>
+                                    <td><img class="img-card-person" src="anhthe7tam\th (3).jpg" alt=""></td>
+                                    <td>59C Nguyen Dinh Chieu, District 3, Ho Chi Minh </td>
+                                    <td>23/07/1996</td>
+                                    <td>Male</td>
+                                    <td>0846881155</td>
+                                    <td><span class="badge bg-danger">Banned</span></td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Delete"
+                                            onclick="myFunction()"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm edit" type="button" title="Fix"
+                                            id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
+                                                class="fas fa-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="10"><input type="checkbox"></td>
+                                    <td>#YUI21376</td>
+                                    <td>Nguyen Thi Mai</td>
+                                    <td><img class="img-card-person" src="anhthe7tam\th.jpg" alt=""></td>
+                                    <td>St 3, Tan Tao A, Binh Tan, Ho Chi Minh</td>
+                                    <td>09/12/2000</td>
+                                    <td>Female</td>
+                                    <td>0836333037</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td><button class="btn btn-primary btn-sm trash" title="Delete"
+                                            onclick="myFunction()"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm edit" title="Fix" id="show-emp"
+                                            data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--
+  MODAL
+-->
+    <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+        data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group  col-md-12">
+                            <span class="thong-tin-thanh-toan">
+                                <h5>Edit basic customer information</h5>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="control-label">ID Customer</label>
+                            <input class="form-control" type="text" required value="001" disabled>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Fullname</label>
+                            <input class="form-control" type="text" required value="Ho Thi Thanh Ngan">
+                        </div>
+                        <div class="form-group  col-md-6">
+                            <label class="control-label">Phone Number</label>
+                            <input class="form-control" type="number" required value="0926737168">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Email</label>
+                            <input class="form-control" type="text" required value="truong.vd2000@gmail.com">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Birthday</label>
+                            <input class="form-control" type="date" value="12/02/1999">
+                        </div>
+                        <div class="form-group  col-md-6">
+                            <label for="exampleSelect1" class="control-label">Status</label>
+                            <select class="form-control" id="exampleSelect1">
+
+                                <option>Active</option>
+                                <option>Banned</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+               
+                <BR>
+                <button class="btn btn-save" type="button">Save</button>
+                <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
+                <BR>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="src/jquery.table2excel.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    <script>
+        function deleteRow(r) {
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("myTable").deleteRow(i);
+        }
+        jQuery(function () {
+            jQuery(".trash").click(function () {
+                swal({
+                    title: "Warning",
+
+                    text: "Are you sure you want to delete this customer?",
+                    buttons: ["Cancel", "Yes"],
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            swal("Deleted successfully.!", {
+
+                            });
+                        }
+                    });
+            });
+        });
+        oTable = $('#sampleTable').dataTable();
+        $('#all').click(function (e) {
+            $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
+            e.stopImmediatePropagation();
+        });
+
+        //EXCEL
+        // $(document).ready(function () {
+        //   $('#').DataTable({
+
+        //     dom: 'Bfrtip',
+        //     "buttons": [
+        //       'excel'
+        //     ]
+        //   });
+        // });
+
+
+        //Thời Gian
+        function time() {
+            var today = new Date();
+            var weekday = new Array(7);
+            weekday[0] = "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Webnesday";
+            weekday[4] = "Thursday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
+            var day = weekday[today.getDay()];
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1;
+            var yyyy = today.getFullYear();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            nowTime = h + " giờ " + m + " phút " + s + " giây";
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+            today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+            tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+                '</span>';
+            document.getElementById("clock").innerHTML = tmp;
+            clocktime = setTimeout("time()", "1000", "Javascript");
+
+            function checkTime(i) {
+                if (i < 10) {
+                    i = "0" + i;
+                }
+                return i;
+            }
+        }
+        //In dữ liệu
+        var myApp = new function () {
+            this.printTable = function () {
+                var tab = document.getElementById('sampleTable');
+                var win = window.open('', '', 'height=700,width=700');
+                win.document.write(tab.outerHTML);
+                win.document.close();
+                win.print();
+            }
+        }
+        //     //Sao chép dữ liệu
+        //     var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+
+        // copyTextareaBtn.addEventListener('click', function(event) {
+        //   var copyTextarea = document.querySelector('.js-copytextarea');
+        //   copyTextarea.focus();
+        //   copyTextarea.select();
+
+        //   try {
+        //     var successful = document.execCommand('copy');
+        //     var msg = successful ? 'successful' : 'unsuccessful';
+        //     console.log('Copying text command was ' + msg);
+        //   } catch (err) {
+        //     console.log('Oops, unable to copy');
+        //   }
+        // });
+
+
+
+
+        //Modal
+        $("#show-emp").on("click", function () {
+            $("#ModalUP").modal({ backdrop: false, keyboard: false })
+        });
+    </script>
+</body>
+
+</html>
